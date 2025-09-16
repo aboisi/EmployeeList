@@ -30,7 +30,5 @@ public class SignupController{
 		return "redirect:/login";
 	}
 }
-//コミットテスト
-
 
 //コミットテスト
