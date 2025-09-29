@@ -28,7 +28,7 @@
 		</div>
 		<!-- 性別　-->
 		<div class="form-group">
-			<div th:each="item：${genderMap}" class="form-check-inline">
+			<div th:each="item:${genderMap}" class="form-check-inline">
 				<input type="radio" class="form-check-input" th:value="${item.value}"/>
 				<label class="form-check-label" th:text="${item.key}"></label>
 			</div>
