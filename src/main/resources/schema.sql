@@ -1,20 +1,20 @@
 /* 社員 */
 CREATE TABLE IF NOT EXISTS T_SYAIN (
-/* 社員ID */
+-- 社員ID
  ID VARCHAR(10) PRIMARY KEY,
-/* 氏名 */
+-- 氏名
  NAME VARCHAR(40) NOT NULL,
-/* パスワード */
+-- パスワード
  PASSWORD VARCHAR(30) NOT NULL,
-/* 生年月日 */
+-- 生年月日
  BIRTHDAY DATE(10),
-/* 性別 */
+-- 性別
  GENDER CHAR(1),
-/* 登録日付 */
+-- 登録日付
  CREATEDATE TIMESTAMP(19) NOT NULL,
-/* 最終更新日付 */
+-- 最終更新日付
  UPDATEDATE TIMESTAMP(10),
-/* 削除日付(論理削除用) */
+-- 削除日付(論理削除用)
  UPDATE_DATE TIMESTAMP(19)
 );
  
