@@ -11,6 +11,6 @@ public interface UserMapper {
 	public int getUserCount();
 	
 	/** ユーザー登録 */
-	public int insertOne(MUser user);
+	public int insertUser(MUser user);
 
 }
