@@ -7,6 +7,9 @@ import com.example.demo.domain.user.model.MUser;
 @Mapper
 public interface UserMapper {
 	
+	/** ユーザー総件数取得 */
+	public int getUserCount();
+	
 	/** ユーザー登録 */
 	public int insertOne(MUser user);
 
