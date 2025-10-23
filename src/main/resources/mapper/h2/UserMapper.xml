@@ -5,6 +5,11 @@
  <!-- Mapperとxmlのマッピング -->
  <mapper namespace="com.example.repository.UserMapper">
  
+  <!-- ユーザーの総件数を取得するSQL -->
+  <select id="getUserCount" resultType="int">
+  	SELECT COUNT(*) FROM T_SYAIN
+  </select>
+ 
  <!-- ユーザー１件登録 -->
  <insert id="insertOne">
  
