@@ -11,7 +11,22 @@
   	SELECT COUNT(*) FROM T_SYAIN
   </select>
  
- <!-- ユーザー１件登録 -->
- <insert id="insertOne">
- 
+ <!-- ユーザー登録 -->
+ <insert id="insertUser">
+ 	INSERT INTO T_SYAIN (
+ 		ID,
+ 		NAME,
+ 		PASSWORD,
+ 		BIRTHDAY,
+ 		GENDER,
+ 		CREATEDATE
+ 	)
+ 	VALUES (
+ 		#{userId},
+ 		#{userName},
+ 		#{password},
+ 		#{birthday},
+ 		#{gender},
+ 		CURRENT_TIMESTAMP
+ 	)
  </insert>
