@@ -6,6 +6,7 @@
  <mapper namespace="com.example.repository.UserMapper">
  
   <!-- ユーザーの総件数を取得するSQL -->
+  	<!-- 戻り値をintで返す -->
   <select id="getUserCount" resultType="int">
   	SELECT COUNT(*) FROM T_SYAIN
   </select>
