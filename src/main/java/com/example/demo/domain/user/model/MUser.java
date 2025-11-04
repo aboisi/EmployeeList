@@ -1,6 +1,7 @@
 package com.example.demo.domain.user.model;
 
-import java.time.LocalDate;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import lombok.Data;
 
@@ -10,9 +11,9 @@ public class MUser {
 	private String userId;
 	private String name;
 	private String password;
-	private LocalDate birthday;
+	private Date birthday;
 	private String gender;
-	private LocalDate createDate;
-	private LocalDate updateDate;
-	private LocalDate deleteDate;
+	private Timestamp createDate;
+	private Timestamp updateDate;
+	private Timestamp deleteDate;
 }
