@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 		int year = now.getYear();
 		
 		//社員ID生成
-		String userId = String.format("%d%3d",year, count + 1);
+		String userId = String.format("%d%03d",year, count + 1);
 		
 		//呼び出し元に返す
 		return userId;
