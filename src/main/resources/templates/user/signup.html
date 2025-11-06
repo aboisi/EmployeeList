@@ -16,20 +16,20 @@
 		<h1 class="text-center">社員登録</h1>
 		<!-- 名前 -->
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="名前"/>
+			<input type="text" class="form-control" th:field="*{name}" placeholder="名前"/>
 		</div>
 		<!-- 生年月日 -->
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="生年月日"/>
+			<input type="date" class="form-control" th:field="*{birthday}" placeholder="生年月日"/>
 		</div>
 		<!--パスワード -->
 		<div class="form-group">
-			<input type="text" class="form-control" placeholder="パスワード"/>
+			<input type="text" class="form-control" th:field="*{password}" placeholder="パスワード"/>
 		</div>
 		<!-- 性別　-->
 		<div class="form-group">
 			<div th:each="item:${genderMap}" class="form-check-inline">
-				<input type="radio" class="form-check-input" th:value="${item.value}"/>
+				<input type="radio" class="form-check-input" th:field="*{gender}" th:value="${item.value}"/>
 				<label class="form-check-label" th:text="${item.key}"></label>
 			</div>
 		</div>
