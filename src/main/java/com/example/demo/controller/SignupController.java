@@ -6,10 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.demo.application.service.UserApplicationService;
+import com.example.demo.domain.user.model.MUser;
+import com.example.demo.domain.user.service.UserService;
 
 @Controller
 @RequestMapping("/user")
@@ -17,6 +20,9 @@ public class SignupController{
 	
 	@Autowired
 	private UserApplicationService userApplicationService;
+	
+	@Autowired
+	private UserService userService;
 	
 	/** ユーザー登録画面を表示 */
 	@GetMapping("/signup")
@@ -31,10 +37,12 @@ public class SignupController{
 	
 	/** ユーザー登録処理 */
 	@PostMapping("/signup")
-	public String postSignup() {
+	public String postSignup(@ModelAttribute MUser user) {
+		
+		//ユーザー登録処理(DB保存+社員生成)
+		userService.signup(user);
+		
 		//ログイン画面にリダイレクト
 		return "redirect:/login";
 	}
 }
-
-//テスト
