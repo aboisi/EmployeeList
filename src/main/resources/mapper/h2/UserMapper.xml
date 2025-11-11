@@ -3,7 +3,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <!-- Mapperとxmlのマッピング -->
- <mapper namespace="com.example.repository.UserMapper">
+ <mapper namespace="com.example.demo.repository.UserMapper">
  
   <!-- ユーザーの総件数を取得するSQL -->
   	<!-- 戻り値をintで返す -->
