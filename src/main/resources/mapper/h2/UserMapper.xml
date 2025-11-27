@@ -23,7 +23,7 @@
  	)
  	VALUES (
  		#{userId},
- 		#{userName},
+ 		#{name},
  		#{password},
  		#{birthday},
  		#{gender},
