@@ -7,26 +7,27 @@
  
   <!-- ユーザーの総件数を取得するSQL -->
   	<!-- 戻り値をintで返す -->
-  <select id="getUserCount" resultType="int">
-  	SELECT COUNT(*) FROM T_SYAIN
-  </select>
+	 <select id="getUserCount" resultType="int">
+	 	SELECT COUNT(*) FROM T_SYAIN
+	 </select>
  
- <!-- ユーザー登録 -->
- <insert id="insertUser">
- 	INSERT INTO T_SYAIN (
- 		ID,
- 		NAME,
- 		PASSWORD,
- 		BIRTHDAY,
- 		GENDER,
- 		CREATEDATE
- 	)
- 	VALUES (
- 		#{userId},
- 		#{name},
- 		#{password},
- 		#{birthday},
- 		#{gender},
- 		CURRENT_TIMESTAMP
- 	)
- </insert>
+	 <!-- ユーザー登録 -->
+	 <insert id="insertUser">
+	 	INSERT INTO T_SYAIN (
+	 		ID,
+	 		NAME,
+	 		PASSWORD,
+	 		BIRTHDAY,
+	 		GENDER,
+	 		CREATEDATE
+	 	)
+	 	VALUES (
+	 		#{userId},
+	 		#{name},
+	 		#{password},
+	 		#{birthday},
+	 		#{gender},
+	 		CURRENT_TIMESTAMP
+	 	)
+	 </insert>
+</mapper>
