@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://wwwthymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,7 +12,8 @@
 <title>社員登録</title>
 </head>
 <body class="bg-light">
-	<form id="signup-form" method="post" action="/user/signup" class="form-signup">
+	<form id="signup-form" method="post" action="/user/signup" 
+	  class="form-signup" th=object="${signupForm}">
 		<h1 class="text-center">社員登録</h1>
 		<!-- 名前 -->
 		<div class="form-group">
