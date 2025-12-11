@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.Map;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.demo.application.service.UserApplicationService;
 import com.example.demo.domain.user.model.MUser;
 import com.example.demo.domain.user.service.UserService;
+import com.example.demo.form.SignupForm;
 
 @Controller
 @RequestMapping("/user")
@@ -24,9 +26,13 @@ public class SignupController{
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private ModelMapper modelMapper;
+	
 	/** ユーザー登録画面を表示 */
 	@GetMapping("/signup")
 	public String getSignup(Model model) {
+		model.addAttribute("signupForm", new SignupForm());
 		//性別を取得
 		Map<String, Integer> genderMap = userApplicationService.getGenderMap();
 		model.addAttribute("genderMap", genderMap);
@@ -37,7 +43,10 @@ public class SignupController{
 	
 	/** ユーザー登録処理 */
 	@PostMapping("/signup")
-	public String postSignup(@ModelAttribute MUser user) {
+	public String postSignup(@ModelAttribute SignupForm form) {
+		
+		//formをMUserクラスに変換
+		MUser user = modelMapper.map(form, MUser.class);
 		
 		//ユーザー登録処理(DB保存+社員生成)
 		userService.signup(user);
