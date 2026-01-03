@@ -46,7 +46,15 @@ public class SignupController{
 	/** ユーザー登録処理 */
 	@PostMapping("/signup")
 	public String postSignup(@ModelAttribute @Validated SignupForm form,
-			BindingResult bindingResult) {
+			BindingResult bindingResult, Model model) {
+		
+		//入力チェック
+		if(bindingResult.hasErrors()) {
+			//性別再取得
+			model.addAttribute("genderMap", userApplicationService.getGenderMap());
+			//NG:ユーザー登録画面に戻る
+			return "user/signup";
+		}
 		
 		//formをMUserクラスに変換
 		MUser user = modelMapper.map(form, MUser.class);
