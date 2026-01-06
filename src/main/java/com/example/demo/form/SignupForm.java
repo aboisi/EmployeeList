@@ -12,17 +12,17 @@ import lombok.Data;
 @Data
 public class SignupForm {
 	
-	@NotBlank
+	@NotBlank(message = "{signup.name.required}")
 	private String name;
 	
-	@NotNull
+	@NotNull(message = "{signup.birthday.required}")
 	@DateTimeFormat(pattern = "yyyy/MM/dd")
 	private LocalDate birthday;
 	
-	@NotBlank
+	@NotBlank(message = "{signup.password.required}")
 	private String password;
 	
-	@NotBlank
+	@NotBlank(message = "{signup.gender.required}")
 	private String gender;
 	
 }
