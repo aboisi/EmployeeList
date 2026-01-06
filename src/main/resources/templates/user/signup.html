@@ -35,8 +35,8 @@
 			<div th:each="item:${genderMap}" class="form-check-inline">
 				<input type="radio" class="form-check-input" th:field="*{gender}" th:value="${item.value}" th:errorclass="is-invalid"/>
 				<label class="form-check-label" th:text="${item.key}"></label>
-				<div class="invalid-feedback" th:errors="*{gender}"></div>
 			</div>
+			<div class="invalid-feedback d-block" th:errors="*{gender}"></div>
 		</div>
 		<!-- 登録ボタン -->
 		<input type="submit" value="ユーザー登録" class="btn btn-primary w-100 mt-3" />
