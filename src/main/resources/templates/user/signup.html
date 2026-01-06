@@ -17,21 +17,25 @@
 		<h1 class="text-center" th:text="#{user.signup.title}"></h1>
 		<!-- 名前 -->
 		<div class="form-group">
-			<input type="text" class="form-control" th:field="*{name}" placeholder="名前"/>
+			<input type="text" class="form-control" th:field="*{name}" placeholder="名前" th:errorclass="is-invalid"/>
+			<div class="invalid-feedback" th:errors="*{name}"></div>
 		</div>
 		<!-- 生年月日 -->
 		<div class="form-group">
-			<input type="date" class="form-control" th:field="*{birthday}" placeholder="生年月日"/>
+			<input type="date" class="form-control" th:field="*{birthday}" placeholder="生年月日"	th:errorclass="is-invalid"/>
+			<div class="invalid-feedback" th:errors="*{birthday}"></div>
 		</div>
 		<!--パスワード -->
 		<div class="form-group">
-			<input type="text" class="form-control" th:field="*{password}" placeholder="パスワード"/>
+			<input type="text" class="form-control" th:field="*{password}" placeholder="パスワード" th:errorclass="is-invalid"/>
+			<div class="invalid-feedback" th:errors="*{password}"></div>
 		</div>
 		<!-- 性別　-->
 		<div class="form-group">
 			<div th:each="item:${genderMap}" class="form-check-inline">
-				<input type="radio" class="form-check-input" th:field="*{gender}" th:value="${item.value}"/>
+				<input type="radio" class="form-check-input" th:field="*{gender}" th:value="${item.value}" th:errorclass="is-invalid"/>
 				<label class="form-check-label" th:text="${item.key}"></label>
+				<div class="invalid-feedback" th:errors="*{gender}"></div>
 			</div>
 		</div>
 		<!-- 登録ボタン -->
