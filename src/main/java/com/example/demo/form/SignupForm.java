@@ -22,7 +22,7 @@ public class SignupForm {
 	@NotBlank
 	private String password;
 	
-	@NotNull
+	@NotBlank
 	private String gender;
 	
 }
