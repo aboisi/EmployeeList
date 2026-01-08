@@ -11,7 +11,7 @@
 		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
 		<title th:text="#{user.signup.title}"></title>
 	</head>
-	<body class="bg-light">
+	<body class="bg-light mx-4">
 		<form id="signup-form" method="post" action="/user/signup" 
 		  class="form-signup" th:object="${signupForm}">
 			<h1 th:text="#{user.signup.title}"></h1>
@@ -44,6 +44,8 @@
 					<input type="submit" value="ユーザー登録" class="btn btn-primary btn-sm" />
 				</div>
 			</div>
+			<!-- 戻るリンク -->
+			<a th:href="@{/user/list}">戻る</a>
 		</form>
 	</body>
 </html>
