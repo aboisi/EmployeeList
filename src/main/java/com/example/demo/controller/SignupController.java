@@ -63,6 +63,12 @@ public class SignupController{
 		userService.signup(user);
 		
 		//ログイン画面にリダイレクト
-		return "redirect:/login";
+		return "redirect:/user/signupComp";
+	}
+	
+	/** 登録完了画面 */
+	@GetMapping("/signupComp")
+	public String getSignupComp() {
+		return "user/signupComp";
 	}
 }
