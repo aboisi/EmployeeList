@@ -34,15 +34,12 @@ public class UserServiceImpl implements UserService {
 
 	/** ユーザー登録 */
 	@Override
-	public MUser signup(MUser user) {
+	public void signup(MUser user) {
 		//先に社員IDを採番
 		String newId = generateUserId();
 		user.setUserId(newId); //setUserIdはMUser.javaで設定
 		
 		//DBへ登録
 		mapper.insertUser(user);
-		
-		//登録済みユーザーを返す
-		return user;
 	}
 }
