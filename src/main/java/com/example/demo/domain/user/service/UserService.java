@@ -8,6 +8,7 @@ public interface UserService {
 	public String generateUserId();
 	
 	/** ユーザー登録 */
-	public void signup(MUser user);
+//	public void signup(MUser user);  voidだと登録後に結果を返さない
+	public MUser signup(MUser user);
 }
 
