@@ -5,7 +5,7 @@
  <!-- Mapperとxmlのマッピング -->
  <mapper namespace="com.example.demo.repository.UserMapper">
  
-  <!-- ユーザーの総件数を取得するSQL -->
+  	<!-- ユーザーの総件数を取得するSQL -->
   	<!-- 戻り値をintで返す -->
 	 <select id="getUserCount" resultType="int">
 	 	SELECT COUNT(*) FROM T_SYAIN
@@ -30,4 +30,20 @@
 	 		CURRENT_TIMESTAMP
 	 	)
 	 </insert>
+	 
+	 <!--  ユーザー取得(ユーザーID指定) -->
+	 <select id="selectUserByuserId"
+	 		 parameterType="String"
+	 		 resultType="com.example.demo.domain.user.model.MUser">
+	 	SELECT
+	 		 ID			AS	userId,
+	 		 NAME		AS	name,
+	 		 PASSWORD	AS	password,
+	 		 GENDER		AS	gender,
+	 		 BIRTHDAY	AS	birthday
+	 	FROM
+	 		T_SYAIN
+	 	WHERE
+	 		ID = #{userId}
+	 </select>
 </mapper>
