@@ -11,6 +11,6 @@ public interface UserService {
 	public void signup(MUser user);
 	
 	/** ユーザー取得(社員ID指定) */
-	MUser findByUserId(String userId);
+	public MUser findByUserId(String userId);
 }
 
