@@ -42,4 +42,10 @@ public class UserServiceImpl implements UserService {
 		//DBへ登録
 		mapper.insertUser(user);
 	}
+	
+	/** ユーザー取得 */
+	@Override
+	public MUser findByUserId(String userId) {
+		return mapper.selectUserByUserId(userId);
+	}
 }
