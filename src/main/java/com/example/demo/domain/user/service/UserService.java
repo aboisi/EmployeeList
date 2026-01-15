@@ -9,5 +9,8 @@ public interface UserService {
 	
 	/** ユーザー登録 */
 	public void signup(MUser user);
+	
+	/** ユーザー取得(社員ID指定) */
+	MUser findByUserId(String userId);
 }
 
