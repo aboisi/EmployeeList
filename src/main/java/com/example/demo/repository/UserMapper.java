@@ -12,5 +12,8 @@ public interface UserMapper {
 	
 	/** ユーザー登録 */
 	public int insertUser(MUser user);
+	
+	/** ユーザー取得 */
+	public MUser selectUserByUserId(String userId);
 
 }
