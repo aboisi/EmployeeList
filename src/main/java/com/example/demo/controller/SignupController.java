@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.application.service.UserApplicationService;
 import com.example.demo.domain.user.model.MUser;
@@ -47,7 +47,9 @@ public class SignupController{
 	/** ユーザー登録処理 */
 	@PostMapping("/signup")
 	public String postSignup(@ModelAttribute @Validated SignupForm form,
-			BindingResult bindingResult, Model model) {
+			BindingResult bindingResult,
+			RedirectAttributes redirectAttributes,
+			Model model) {
 		
 		//入力チェック
 		if(bindingResult.hasErrors()) {
@@ -63,19 +65,17 @@ public class SignupController{
 		//ユーザー登録処理(DB保存+社員生成)
 		userService.signup(user);
 		
-		//登録完了画面へ(userIdを渡す)
-		return "redirect:/user/signupComp?userId=" + user.getUserId();
+		//URLに出さずにデータを渡す
+		redirectAttributes.addFlashAttribute("user", user);
+		
+		//登録完了画面へ
+		return "redirect:/user/signupComp";
 	}
 	
 	/** 登録完了画面 */
 	@GetMapping("/signupComp")
-	public String getSignupComp(@RequestParam String userId, Model model) {
-		
-		//DBからユーザー取得
-		MUser user = userService.findByUserId(userId);
-		
-		model.addAttribute("user" , user);
-		
+	public String getSignupComp() {
+
 		return "user/signupComp";
 	}
 }
