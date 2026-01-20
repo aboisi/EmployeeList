@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.application.service.UserApplicationService;
 import com.example.demo.domain.user.model.MUser;
@@ -68,7 +69,13 @@ public class SignupController{
 	
 	/** 登録完了画面 */
 	@GetMapping("/signupComp")
-	public String getSignupComp() {
+	public String getSignupComp(@RequestParam String userId, Model model) {
+		
+		//DBからユーザー取得
+		MUser user = userService.findByUserId(userId);
+		
+		model.addAttribute("user" , user);
+		
 		return "user/signupComp";
 	}
 }
