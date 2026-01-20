@@ -62,8 +62,8 @@ public class SignupController{
 		//ユーザー登録処理(DB保存+社員生成)
 		userService.signup(user);
 		
-		//ログイン画面にリダイレクト
-		return "redirect:/user/signupComp";
+		//登録完了画面へ(userIdを渡す)
+		return "redirect:/user/signupComp?userId=" + user.getUserId();
 	}
 	
 	/** 登録完了画面 */
