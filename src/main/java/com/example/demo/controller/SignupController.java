@@ -65,8 +65,8 @@ public class SignupController{
 		//ユーザー登録処理(DB保存+社員生成)
 		userService.signup(user);
 		
-		//URLに出さずにデータを渡す
-		redirectAttributes.addFlashAttribute("user", user);
+		//URLに出さずにユーザーIDを渡す
+		redirectAttributes.addFlashAttribute("userId", user.getUserId());
 		
 		//登録完了画面へ
 		return "redirect:/user/signupComp";
@@ -74,7 +74,18 @@ public class SignupController{
 	
 	/** 登録完了画面 */
 	@GetMapping("/signupComp")
-	public String getSignupComp() {
+	public String getSignupComp(
+			@ModelAttribute("userId") String userId,
+			Model model) {
+		
+		//更新・直アクセス対策
+		if (userId == null) {
+			return "redirect:/user/list";
+		}
+		
+	    // DBから取得
+	    MUser user = userService.findByUserId(userId);
+	    model.addAttribute("user", user);
 
 		return "user/signupComp";
 	}
