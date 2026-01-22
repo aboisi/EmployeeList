@@ -24,7 +24,7 @@
 		<!-- 性別 -->
 		<p>性別：<span th:text="${user.gender == 1}? '男性':'女性'"></span></p>
 		<!-- 生年月日 -->
-		<p>生年月日：<span th:text="${user.birthday}"></span></p>
+		<p>生年月日：<span th:text="${#temporals.format(user.birthday, 'yyyy/MM/dd')}"></span></p>
 	</div>
 </body>
 </html>
