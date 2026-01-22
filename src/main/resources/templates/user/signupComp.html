@@ -14,10 +14,17 @@
 </head>
 <body class="bg-light">
 	<h1 th:text="#{user.signupComp.title}"></h1>
-	<!-- 社員番号 -->
-	<!-- 名前 -->
-	<!-- パスワード -->
-	<!-- 性別 -->
-	<!-- 生年月日 -->
+	<div>
+		<!-- 社員番号 -->
+		<p>社員番号：<span th:text="${user.userId}"></span></p>
+		<!-- 名前 -->
+		<p>名前：<span th:text="${user.name}"></span></p>
+		<!-- パスワード -->
+		<p>パスワード：<span th:text="${user.password}"></span></p>
+		<!-- 性別 -->
+		<p>性別：<span th:text="${user.gender}"></span></p>
+		<!-- 生年月日 -->
+		<p>生年月日：<span th:text="${user.birthday}"></span></p>
+	</div>
 </body>
 </html>
