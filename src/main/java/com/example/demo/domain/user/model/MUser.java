@@ -12,7 +12,7 @@ public class MUser {
 	private String name;
 	private String password;
 	private LocalDate birthday;
-	private String gender;
+	private Integer gender;
 	private LocalDateTime createDate;
 	private LocalDateTime updateDate;
 	private LocalDateTime deleteDate;
