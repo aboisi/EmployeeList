@@ -1,5 +1,7 @@
 package com.example.demo.domain.user.service;
 
+import java.util.List;
+
 import com.example.demo.domain.user.model.MUser;
 
 public interface UserService {
@@ -12,5 +14,8 @@ public interface UserService {
 	
 	/** ユーザー取得(社員ID指定) */
 	public MUser findByUserId(String userId);
+	
+	/** 社員一覧取得 */
+	List<MUser> getUserList();
 }
 
