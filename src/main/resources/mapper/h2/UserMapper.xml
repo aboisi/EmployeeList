@@ -32,7 +32,7 @@
 	 </insert>
 	 
 	 <!--  ユーザー取得(ユーザーID指定) -->
-	 <select id="selectUserByuserId"
+	 <select id="selectUserByUserId"
 	 		 parameterType="String"
 	 		 resultType="com.example.demo.domain.user.model.MUser">
 	 	SELECT
