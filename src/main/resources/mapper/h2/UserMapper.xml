@@ -46,4 +46,20 @@
 	 	WHERE
 	 		ID = #{userId}
 	 </select>
+	 
+	 <!-- 社員一覧取得 -->
+	 <select id="selectUserList"
+	 		 resultType="com.example.demo.domain.user.model.MUser">
+	 	SELECT
+	 		ID			AS	userId,
+	 		NAME		AS	name,
+	 		PASSWORD	AS	password,
+	 		GENDER		AS	gender,
+	 		BIRTHDAY	AS	birthday
+	 	FROM
+	 		T_SYAIN
+	 	<!-- WHEREは条件で絞る、ORDER BYは指定したもので並び替えて表示する -->>
+	 	ORDER BY
+	 		ID
+	 </select>
 </mapper>
