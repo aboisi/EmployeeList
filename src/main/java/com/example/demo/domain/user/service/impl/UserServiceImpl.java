@@ -1,6 +1,7 @@
 package com.example.demo.domain.user.service.impl;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,5 +48,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public MUser findByUserId(String userId) {
 		return mapper.selectUserByUserId(userId);
+	}
+	
+	/** 社員一覧取得 */
+	@Override
+	public List<MUser> getUserList() {
+		return mapper.selectUserList();
 	}
 }
