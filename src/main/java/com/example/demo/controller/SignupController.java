@@ -79,7 +79,7 @@ public class SignupController{
 			Model model) {
 		
 		//更新・直アクセス対策
-		if (userId == null) {
+		if (userId == null || userId.isEmpty()) {
 			return "redirect:/user/list";
 		}
 		
