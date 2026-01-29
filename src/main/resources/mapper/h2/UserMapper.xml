@@ -58,7 +58,7 @@
 	 		BIRTHDAY	AS	birthday
 	 	FROM
 	 		T_SYAIN
-	 	<!-- WHEREは条件で絞る、ORDER BYは指定したもので並び替えて表示する -->>
+	 	<!-- WHEREは条件で絞る、ORDER BYは指定したもので並び替えて表示する -->
 	 	ORDER BY
 	 		ID
 	 </select>
