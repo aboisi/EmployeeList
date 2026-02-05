@@ -75,4 +75,12 @@
 	 	where
 	 		ID = #{userId}
 	 </update>
+	 
+	 <!-- ユーザー削除(1件) -->
+	 <delete id="deleteOne">
+	 delete from
+	 	T_SYAIN
+	 where
+	 	ID = #{userIs}
+	 </delete>
 </mapper>
