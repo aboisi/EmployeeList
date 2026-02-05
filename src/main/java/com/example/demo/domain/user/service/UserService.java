@@ -17,5 +17,14 @@ public interface UserService {
 	
 	/** 社員一覧取得 */
 	List<MUser> getUserList();
+	
+	/** ユーザー更新(i件) */
+	public void updateUserOne(String userId,
+			String password,
+			String birthday,
+			String gender);
+	
+	/** ユーザー削除(1件) */
+	public void deleteUserOne(String userId);
 }
 
