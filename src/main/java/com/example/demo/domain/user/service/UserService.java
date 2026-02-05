@@ -20,6 +20,7 @@ public interface UserService {
 	
 	/** ユーザー更新(i件) */
 	public void updateUserOne(String userId,
+			String name,
 			String password,
 			String birthday,
 			String gender);
