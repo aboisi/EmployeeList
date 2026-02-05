@@ -23,7 +23,8 @@ public interface UserMapper {
 	public List<MUser> selectUserList();
 	
 	/** ユーザー更新(1件) */
-	public int updateOne(@Param("name") String name,
+	public int updateOne(@Param("userId") String userId,
+		@Param("name") String name,
 		@Param("password") String password,
 		@Param("birthday") String birthday,
 		@Param("gender") String gender);
