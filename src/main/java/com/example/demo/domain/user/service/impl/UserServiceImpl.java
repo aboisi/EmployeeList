@@ -55,4 +55,24 @@ public class UserServiceImpl implements UserService {
 	public List<MUser> getUserList() {
 		return mapper.selectUserList();
 	}
+	
+	/** ユーザー更新(1件) */
+	@Override
+	public void updateUserOne(String userId,
+			String name,
+			String password,
+			String birthday,
+			String gender) {
+		mapper.updateOne(userId, name, password, birthday, gender);
+	}
+	
+	/** ユーザー削除(1件) */
+	@Override
+	public void deleteUserOne(String userId) {
+		int count = mapper.deleteOne(userId);
+		if (count == 0) {
+			throw new RuntimeException("削除対象のユーザーが存在しません");
+			
+		}
+	}
 }
