@@ -62,4 +62,17 @@
 	 	ORDER BY
 	 		ID
 	 </select>
+	 
+	 <!-- ユーザー更新(1件) -->
+	 <update id="updateOne">
+	 	update
+	 		T_SYAIN
+	 	set
+	 		NAME = #{name},
+	 		PASSWORD = #{password},
+	 		GENDER = #{gender},
+	 		BIRTHDAY = #{birthday}
+	 	where
+	 		ID = #{userId}
+	 </update>
 </mapper>
