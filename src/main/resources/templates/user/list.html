@@ -23,6 +23,11 @@
 			<td th:text="${user.name}"></td>
 			<td th:text="${user.gender == 1? '男性' : '女性'}"></td>
 			<td th:text="${#temporals.format(user.birthday, 'yyyy/MM/dd')}"></td>
+			<td>
+				<a th:href="@{/user/edit(userId=${user.userId})}">
+					編集
+				</a>
+			</td>
 		</tr>
 	</table>
 </body>
