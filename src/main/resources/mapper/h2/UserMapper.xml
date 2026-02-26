@@ -59,6 +59,12 @@
 	 	FROM
 	 		T_SYAIN
 	 	<!-- WHEREは条件で絞る、ORDER BYは指定したもので並び替えて表示する -->
+	 	<where>
+	 		<if test="name != null and name != ''">
+	 			NAME like '%'|| #{name} ||'%'
+	 		</if>
+	 	</where>
+	 	
 	 	ORDER BY
 	 		ID
 	 </select>
