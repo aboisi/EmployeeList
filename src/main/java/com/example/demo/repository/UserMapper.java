@@ -16,14 +16,11 @@ public interface UserMapper {
 	/** ユーザー登録 */
 	public int insertUser(MUser user);
 	
-	/** ユーザー取得(検索) **/
-	public List<MUser> findMany(MUser user);
-	
 	/** ユーザー取得(1件) */
 	public MUser selectUserByUserId(String userId);
 	
 	/** 社員一覧取得 */
-	public List<MUser> selectUserList();
+	public List<MUser> selectUserList(MUser user);
 	
 	/** ユーザー更新(1件) */
 	public int updateOne(@Param("userId") String userId,
