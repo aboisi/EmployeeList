@@ -49,6 +49,7 @@
 	 
 	 <!-- 社員一覧取得 -->
 	 <select id="selectUserList"
+	 		 parameterType="com.example.demo.domain.user.model.MUser"
 	 		 resultType="com.example.demo.domain.user.model.MUser">
 	 	SELECT
 	 		ID			AS	userId,
