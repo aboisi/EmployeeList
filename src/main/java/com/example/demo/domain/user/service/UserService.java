@@ -16,7 +16,7 @@ public interface UserService {
 	public MUser findByUserId(String userId);
 	
 	/** 社員一覧取得 */
-	List<MUser> getUserList();
+	List<MUser> getUserList(MUser user);
 	
 	/** ユーザー更新(i件) */
 	public void updateUserOne(String userId,
