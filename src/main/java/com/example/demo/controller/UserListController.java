@@ -23,7 +23,8 @@ public class UserListController {
 	@GetMapping("/list")
 	public String getUserList(Model model) {
 		
-		List<MUser> userList = userService.getUserList();
+		MUser user = new MUser();
+		List<MUser> userList = userService.getUserList(user);
 		
 		//Modelに登録
 		model.addAttribute("userList" , userList);
