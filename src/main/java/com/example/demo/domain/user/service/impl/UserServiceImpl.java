@@ -52,8 +52,8 @@ public class UserServiceImpl implements UserService {
 	
 	/** 社員一覧取得 */
 	@Override
-	public List<MUser> getUserList() {
-		return mapper.selectUserList();
+	public List<MUser> getUserList(MUser user) {
+		return mapper.selectUserList(user);
 	}
 	
 	/** ユーザー更新(1件) */
