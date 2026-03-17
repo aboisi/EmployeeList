@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -50,5 +51,22 @@ public class UserListController {
 		model.addAttribute("user", user);
 		
 		return "user/edit";
+	}
+	
+	/** ユーザー検索処理 */
+	@PostMapping("/list")
+	public String postUserList(@ModelAttribute UserListForm form, Model model) {
+		
+		//formをMUserクラスに変換
+		MUser user = modelMapper.map(form, MUser.class);
+		
+		//ユーザー検索
+		List<MUser> userList = userService.getUserList(user);
+		
+		//Modelに登録
+		model.addAttribute("userList", userList);
+		
+		//社員一覧画面を表示
+		return "user/list";
 	}
 }
