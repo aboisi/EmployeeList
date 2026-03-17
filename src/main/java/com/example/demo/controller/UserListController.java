@@ -21,9 +21,10 @@ public class UserListController {
 	
 	/** 社員一覧画面を表示 */
 	@GetMapping("/list")
-	public String getUserList(Model model) {
+//	public String getUserList(Model model) {
+	public String getUserList(MUser user, Model model) {
 		
-		MUser user = new MUser();
+//		MUser user = new MUser();
 		List<MUser> userList = userService.getUserList(user);
 		
 		//Modelに登録
