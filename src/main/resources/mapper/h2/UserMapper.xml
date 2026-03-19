@@ -89,6 +89,6 @@
 	 delete from
 	 	T_SYAIN
 	 where
-	 	ID = #{userIs}
+	 	ID = #{userId}
 	 </delete>
 </mapper>
