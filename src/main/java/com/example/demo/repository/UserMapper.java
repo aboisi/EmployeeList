@@ -1,5 +1,6 @@
 package com.example.demo.repository;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
@@ -26,8 +27,8 @@ public interface UserMapper {
 	public int updateOne(@Param("userId") String userId,
 		@Param("name") String name,
 		@Param("password") String password,
-		@Param("birthday") String birthday,
-		@Param("gender") String gender);
+		@Param("birthday") LocalDate birthday,
+		@Param("gender") Integer gender);
 	
 	/** ユーザー削除(1件) */
 	public int deleteOne(@Param("userId") String userId);

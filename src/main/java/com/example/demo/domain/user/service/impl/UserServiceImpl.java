@@ -61,8 +61,8 @@ public class UserServiceImpl implements UserService {
 	public void updateUserOne(String userId,
 			String name,
 			String password,
-			String birthday,
-			String gender) {
+			LocalDate birthday,
+			Integer gender) {
 		mapper.updateOne(userId, name, password, birthday, gender);
 	}
 	

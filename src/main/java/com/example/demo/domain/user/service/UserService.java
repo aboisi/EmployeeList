@@ -1,5 +1,6 @@
 package com.example.demo.domain.user.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.example.demo.domain.user.model.MUser;
@@ -22,8 +23,8 @@ public interface UserService {
 	public void updateUserOne(String userId,
 			String name,
 			String password,
-			String birthday,
-			String gender);
+			LocalDate birthday,
+			Integer gender);
 	
 	/** ユーザー削除(1件) */
 	public void deleteUserOne(String userId);
