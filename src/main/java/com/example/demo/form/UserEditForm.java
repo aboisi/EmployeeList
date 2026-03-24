@@ -6,6 +6,7 @@ import lombok.Data;
 
 @Data
 public class UserEditForm {
+	private String userId;
 	private String name;
 	private String password;
 	private LocalDate birthday;
