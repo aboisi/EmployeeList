@@ -54,4 +54,14 @@ public class UserEditController {
 		return "redirect:/user/list";
 	}
 	
+	/** ユーザー削除処理 */
+	@PostMapping("/delete")
+	public String deleteUser(UserEditForm form, Model model) {
+		
+		//ユーザーを削除
+		userService.deleteUserOne(form.getUserId());
+		
+		//ユーザー一覧画面にリダイレクト
+		return "redirect:/user/list";
+	}
 }
