@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.Map;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.demo.application.service.UserApplicationService;
 import com.example.demo.domain.user.model.MUser;
 import com.example.demo.domain.user.service.UserService;
 import com.example.demo.form.UserEditForm;
@@ -17,6 +20,9 @@ import com.example.demo.form.UserEditForm;
 @Controller
 @RequestMapping("/user")
 public class UserEditController {
+	
+	@Autowired
+	private UserApplicationService userApplicationService;
 	
 	@Autowired
 	private UserService userService;
@@ -30,6 +36,10 @@ public class UserEditController {
 		
 		MUser user = userService.findByUserId(userId);
 		model.addAttribute("user", user);
+		
+		//性別を取得
+		Map<String, Integer> genderMap = userApplicationService.getGenderMap();
+		model.addAttribute("genderMap", genderMap);
 		
 		return "user/edit";
 	}
