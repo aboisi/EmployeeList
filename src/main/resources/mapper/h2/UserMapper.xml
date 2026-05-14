@@ -78,7 +78,7 @@
 	 		NAME = #{name},
 	 		PASSWORD = #{password},
 	 		GENDER = #{gender},
-	 		BIRTHDAY = #{birthday}
+	 		BIRTHDAY = #{birthday},
 	 		UPDATEDATE = CURRENT_TIMESTAMP
 	 	where
 	 		ID = #{userId}
