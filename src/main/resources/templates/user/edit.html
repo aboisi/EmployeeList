@@ -13,7 +13,7 @@
 	</head>
 	<body class="bg-light mx-4">
 		<form id="edit-form" method="post" action="/user/update" 
-		  class="form-edit" th:object="${UserEditForm}">
+		  class="form-edit" th:object="${user}">
 			<h1 th:text="#{user.edit.title}"></h1>
 			<div class="row g-1 align-items-end">
 				<!-- 名前 -->
