@@ -35,7 +35,7 @@ public class UserEditController {
 	}
 	
 	/** ユーザー更新処理 */
-	@PostMapping("/update")
+	@PostMapping(value="/edit", params="update")
 	public String postUpdate(@ModelAttribute UserEditForm form, Model model) {
 		
 		// Form → Entityに変換
@@ -55,7 +55,7 @@ public class UserEditController {
 	}
 	
 	/** ユーザー削除処理 */
-	@PostMapping("/delete")
+	@PostMapping(value="/edit", params="delete")
 	public String deleteUser(UserEditForm form, Model model) {
 		
 		//ユーザーを削除
