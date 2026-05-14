@@ -1,7 +1,57 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title th:text="#{user.edit.title}"></title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<!-- CSS読込 -->
+		<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+		<link rel="stylesheet" th:href="@{/css/login/login.css}">
+		<!-- JS読込 -->
+		<script th:src="@{/webjars/jquery/jquery.min.js}" defer></script>
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}" defer></script>
+		<title th:text="#{user.signup.title}"></title>
+	</head>
+	<body class="bg-light mx-4">
+		<form id="edit-form" method="post" action="/user/update" 
+		  class="form-edit" th:object="${UserEditForm}">
+			<h1 th:text="#{user.edit.title}"></h1>
+			<div class="row g-1 align-items-end">
+				<!-- 名前 -->
+				<div class="col-auto">
+					<input type="text" class="form-control" th:field="*{name}" placeholder="名前" th:errorclass="is-invalid"/>
+					<div class="invalid-feedback" th:errors="*{name}"></div>
+				</div>
+				<!-- 生年月日 -->
+				<div class="col-auto">
+					<input type="date" class="form-control" th:field="*{birthday}" placeholder="生年月日"	th:errorclass="is-invalid"/>
+					<div class="invalid-feedback" th:errors="*{birthday}"></div>
+				</div>
+				<!--パスワード -->
+				<div class="col-auto">
+					<input type="text" class="form-control" th:field="*{password}" placeholder="パスワード" th:errorclass="is-invalid"/>
+					<div class="invalid-feedback" th:errors="*{password}"></div>
+				</div>
+				<!-- 性別　-->
+				<div class="col-auto">
+					<div th:each="item:${genderMap}" class="form-check-inline">
+						<input type="radio" class="form-check-input" th:field="*{gender}" th:value="${item.value}" th:errorclass="is-invalid"/>
+						<label class="form-check-label" th:text="${item.key}"></label>
+					</div>
+					<div class="invalid-feedback d-block" th:errors="*{gender}"></div>
+				</div>
+				<!-- 更新ボタン(修正前) -->
+				<div class="col-auto">
+					<input type="submit" value="登録" class="btn btn-primary btn-sm" />
+				</div>
+				<!-- 削除ボタン(修正前) -->
+				<div class="col-auto">
+					<input type="submit" value="登録" class="btn btn-primary btn-sm" />
+				</div>
+			</div>
+			<!-- 一覧画面リンク(修正前) -->
+			<a th:href="@{/user/list}" class="d-inline-block my-3">
+				社員名簿一覧へ
+			</a>
+		</form>
+	</body>
+</html>
