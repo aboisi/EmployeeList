@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.application.service.UserApplicationService;
 import com.example.demo.domain.user.model.MUser;
@@ -46,7 +47,9 @@ public class UserEditController {
 	
 	/** ユーザー更新処理 */
 	@PostMapping(value="/edit", params="update")
-	public String postUpdate(@ModelAttribute UserEditForm form, Model model) {
+	public String postUpdate(
+			@ModelAttribute UserEditForm form,
+			RedirectAttributes redirectAttributes) {
 		
 		// Form → Entityに変換
 		MUser user = modelMapper.map(form, MUser.class);
@@ -60,8 +63,34 @@ public class UserEditController {
 				user.getGender()
 				);
 		
+		//URLに出さずにユーザーIDを渡す
+		redirectAttributes.addFlashAttribute("userId", user.getUserId());
+		
 		// 更新完了画面へ
 		return "redirect:/user/updateComp";
+	}
+	
+	/** 更新完了画面 */
+	@GetMapping("/updateComp")
+	public String getSignupComp(
+			@ModelAttribute("userId") String userId,
+			Model model) {
+		
+		//更新・直アクセス対策
+		if (userId == null || userId.isEmpty()) {
+			
+		    System.out.println("取得失敗");
+		    
+			return "redirect:/user/list";
+		}
+		
+	    // DBから取得
+	    MUser user = userService.findByUserId(userId);
+	    model.addAttribute("user", user);
+	    
+	    System.out.println("取得成功");
+
+		return "user/updateComp";
 	}
 	
 	/** ユーザー削除処理 */
