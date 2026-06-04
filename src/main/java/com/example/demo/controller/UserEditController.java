@@ -60,8 +60,8 @@ public class UserEditController {
 				user.getGender()
 				);
 		
-		// 一覧画面へリダイレクト
-		return "redirect:/user/list";
+		// 更新完了画面へ
+		return "redirect:/user/updateComp";
 	}
 	
 	/** ユーザー削除処理 */
